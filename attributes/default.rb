@@ -4,4 +4,4 @@ set[:zsh][:users] = ['vagrant']
 set[:ohmyzsh][:theme] = "robbyrussell"
 set[:ohmyzsh][:users] = [ "vagrant" ]
 set[:mysql][:server_root_password] = "qweqwe"
-set[:postgresql][:password][:postgres] = "qweqwe"
+# set[:postgresql][:password][:postgres] = "qweqwe"
