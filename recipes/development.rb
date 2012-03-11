@@ -1,12 +1,12 @@
 #
-# Cookbook Name:: dev_main
+# Cookbook Name:: youroute
 # Recipe:: development
 #
 # Copyright 2012, YOUR_COMPANY_NAME
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe "dev_main::default"
+include_recipe "youroute::default"
 
 # gem_package "mysql"
 # mysql_connection_info = {:host => "localhost", :username => 'root', :password => node['mysql']['server_root_password']}

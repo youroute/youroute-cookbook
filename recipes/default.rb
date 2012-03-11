@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: dev_main
+# Cookbook Name:: youroute
 # Recipe:: default
 #
 # Copyright 2012, YOUR_COMPANY_NAME
