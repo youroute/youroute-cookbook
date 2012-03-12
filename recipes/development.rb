@@ -21,6 +21,8 @@ include_recipe "youroute::default"
 bash "install ruby-1.9.3-p125-perf" do
   # code below executes "curl https://raw.github.com/gist/1688857/rbenv.sh | sh"
   code <<-EOH
+    source /etc/zsh/zshenv
+    source ~/.zshrc
     VERSION="1.9.3-p125"
     curl https://raw.github.com/gist/1688857/2-$VERSION-patched.sh > /tmp/$VERSION-perf
     rbenv install /tmp/$VERSION-perf
