@@ -8,6 +8,14 @@
 #
 include_recipe "youroute::default"
 
+# vagrant ssh hangs up fix
+template "/etc/rc.local" do
+  source "rc.local"
+  mode "755"
+  owner "root"
+  group "root"
+end
+
 # gem_package "mysql"
 # mysql_connection_info = {:host => "localhost", :username => 'root', :password => node['mysql']['server_root_password']}
 # %w{development test production}.each do |database|
@@ -32,4 +40,6 @@ bash "install ruby-1.9.3-p125-perf" do
 end
 
 rbenv_global "1.9.3-p125-perf"
-rbenv_gem "bundler"
+%w(bundler pry).each do |name|
+  rbenv_gem name
+end

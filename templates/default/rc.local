@@ -1,0 +1,2 @@
+sh /etc/init.d/networking restart # vagrant ssh hotfix
+exit 0
