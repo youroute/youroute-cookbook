@@ -28,7 +28,8 @@ require_recipe "mysql::server"
   'libxslt1-dev',
   ###
   'libsqlite3-dev', # this is for bundle install after rails new
-  'imagemagick' # for paperclip
+  'imagemagick', # for paperclip
+  'htop' # for process monitoring
 ].each do |name|
   package name do
     action :install
