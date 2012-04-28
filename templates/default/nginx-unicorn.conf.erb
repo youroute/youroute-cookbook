@@ -1,0 +1,40 @@
+upstream <%= @app_name %>_cluster {
+  server unix:/tmp/unicorn.<%= @app_name %>.sock;
+}
+
+server {
+  listen  80;
+<% if @server_names %>
+  server_name  <%= @server_names.join(',') %>;
+<% else %>
+  server_name  <%= @app_name %>.youroute.local;
+<% end %>
+
+  root <%= @root %>/public;
+
+  client_max_body_size 10m;
+
+  location / {
+    proxy_set_header  X-Real-IP  $remote_addr;
+    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    if (!-f $request_filename) {
+      proxy_pass http://<%= @app_name %>_cluster;
+      break;
+    }
+  }
+
+<% if @serve_precompiled_assets %>
+  location ~ ^/(assets)/  {
+    gzip_static on; # to serve pre-gzipped version
+    expires max;
+    add_header Cache-Control public;
+  }
+<% end %>
+
+  # location ^~ /pdfs/ {
+  #   add_header  Content-Disposition attachment;
+  # }
+}

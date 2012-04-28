@@ -19,6 +19,8 @@ require_recipe "gem-config"
 require_recipe "database"
 require_recipe "mysql"
 require_recipe "mysql::server"
+require_recipe "runit"
+require_recipe "nginx::source"
 # require_recipe "postgresql::server"
 
 [

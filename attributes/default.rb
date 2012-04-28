@@ -6,4 +6,6 @@ set[:ohmyzsh][:users] = [ "vagrant" ]
 set[:mysql][:server_root_password] = "qweqwe"
 set[:mysql][:bind_address] = "127.0.0.1"
 set[:rbenv][:group_users] = ['vagrant']
+set[:nginx][:worker_processes] = 2
+set[:nginx][:gzip_comp_level] = 5
 # set[:postgresql][:password][:postgres] = "qweqwe"
