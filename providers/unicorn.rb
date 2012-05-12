@@ -32,7 +32,7 @@ action :create do
     :group => new_resource.runit_group
   }
 
-  runit_service "gitlabhq" do
+  runit_service runit_options[:app_name] do
     template_name "unicorn"
     log_template_name "unicorn"
     options runit_options
