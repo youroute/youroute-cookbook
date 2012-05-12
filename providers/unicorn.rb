@@ -37,4 +37,6 @@ action :create do
     log_template_name "unicorn"
     options runit_options
   end
+
+  new_resource.updated_by_last_action(true)
 end
