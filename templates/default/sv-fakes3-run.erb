@@ -1,0 +1,3 @@
+#!/bin/zsh
+exec 2>&1
+exec chpst fakes3 -r <%= node['fakes3']['root'] %> -p <%= node['fakes3']['port'] %>

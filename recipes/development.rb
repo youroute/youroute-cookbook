@@ -111,3 +111,13 @@ youroute_unicorn "youroute" do
   serve_precompiled_assets false
   rails_env "development"
 end
+
+rbenv_gem "fakes3"
+
+directory "/mnt/fakes3/" do
+  owner "vagrant"
+  group "vagrant"
+  action :create
+end
+
+runit_service "fakes3"

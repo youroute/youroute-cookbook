@@ -8,4 +8,6 @@ set['mysql']['bind_address'] = "127.0.0.1"
 set['rbenv']['group_users'] = ['vagrant']
 set['nginx']['worker_processes'] = 2
 set['nginx']['gzip_comp_level'] = 5
+set['fakes3']['root'] = '/mnt/fakes3'
+set['fakes3']['port'] = 4567
 # set[:postgresql][:password][:postgres] = "qweqwe"
