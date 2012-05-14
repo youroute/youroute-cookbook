@@ -51,6 +51,8 @@ rbenv_global "1.9.3-p125-perf"
   rbenv_gem name
 end
 
+execute "rbenv rehash"
+
 ['vagrant-deploy','vagrant-deploy.pub'].each do |name|
   cookbook_file "/home/vagrant/.ssh/#{name}" do
     source name
@@ -83,6 +85,8 @@ cookbook_file "/tmp/wrap-ssh4git.sh" do
   mode 0700
 end
 
+####### TODO: move it into provider
+
 youroute_path = "/srv/youroute"
 
 git youroute_path do
@@ -91,17 +95,22 @@ git youroute_path do
   user "vagrant"
   action :sync
   ssh_wrapper "/tmp/wrap-ssh4git.sh"
+  not_if "test -d #{youroute_path}"
 end
-
-execute "rbenv rehash"
 
 execute "bundle install --without production" do
   cwd youroute_path
+  action :nothing
+  subscribes :run, resources( :git => youroute_path )
 end
 
 execute "rake db:setup" do
   cwd youroute_path
+  action :nothing
+  subscribes :run, resources( :execute => "bundle install --without production" )
 end
+
+#######
 
 youroute_unicorn "youroute" do
   root "/srv/youroute/"
