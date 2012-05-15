@@ -10,4 +10,5 @@ set['nginx']['worker_processes'] = 2
 set['nginx']['gzip_comp_level'] = 5
 set['fakes3']['root'] = '/mnt/fakes3'
 set['fakes3']['port'] = 4567
+set['tz'] = 'Europe/Moscow'
 # set[:postgresql][:password][:postgres] = "qweqwe"
