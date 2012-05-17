@@ -25,6 +25,7 @@ require_recipe "timezone"
 
 [
   'console-cyrillic',
+  'language-pack-ru',
   ### this packages is nessesary for build nokogiri native extensions
   'libxml2-dev',
   'libxslt1-dev',
