@@ -131,3 +131,7 @@ directory "/mnt/fakes3/" do
 end
 
 runit_service "fakes3"
+
+runit_service "guard-youroute" do
+  options :rails_root => "/srv/youroute"
+end
