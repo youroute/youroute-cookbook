@@ -22,6 +22,7 @@ require_recipe "mysql::server"
 require_recipe "runit"
 require_recipe "nginx::source"
 require_recipe "timezone"
+require_recipe "mosh::source"
 
 [
   'console-cyrillic',
