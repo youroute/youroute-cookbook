@@ -51,8 +51,6 @@ rbenv_global "1.9.3-p125-perf"
   rbenv_gem name
 end
 
-execute "rbenv rehash"
-
 ['vagrant-deploy','vagrant-deploy.pub'].each do |name|
   cookbook_file "/home/vagrant/.ssh/#{name}" do
     source name
@@ -103,6 +101,9 @@ execute "bundle install --without production" do
   action :nothing
   subscribes :run, resources( :git => youroute_path )
 end
+
+# Rehash gems after bundle install for use their binaries
+execute "rbenv rehash"
 
 execute "rake db:setup" do
   cwd youroute_path
