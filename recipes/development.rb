@@ -98,17 +98,20 @@ end
 
 execute "bundle install --without production" do
   cwd youroute_path
-  not_if "test -d #{youroute_path}"
+  action :nothing
+  subscribes :run, resources(:git => youroute_path), :immediately
 end
 
 # Rehash gems after bundle install for use their binaries
 execute "rbenv rehash" do
-  not_if "test -d #{youroute_path}"
+  action :nothing
+  subscribes :run, resources(:git => youroute_path), :immediately
 end
 
 execute "rake db:setup" do
   cwd youroute_path
-  not_if "test -d #{youroute_path}"
+  action :nothing
+  subscribes :run, resources(:git => youroute_path), :immediately
 end
 
 #######
