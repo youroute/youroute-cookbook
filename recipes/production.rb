@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
+default.zsh.users = "ubuntu"
+default.ohmyzsh.users = "ubuntu"
+default.rbenv.group_users = "ubuntu"
+
 include_recipe "youroute::default"
 
 rbenv_ruby "1.9.3-p125"
