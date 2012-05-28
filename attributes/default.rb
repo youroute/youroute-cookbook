@@ -20,4 +20,5 @@ set['mosh']['source_depends'] = case node['platform']
                                       []
                                     end
 set['mosh']['init_style'] = 'runit'
+set['youroute']['deploy_user'] = 'vagrant'
 # set[:postgresql][:password][:postgres] = "qweqwe"

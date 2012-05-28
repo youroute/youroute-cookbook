@@ -13,9 +13,18 @@ rbenv_ruby "1.9.3-p125"
 rbenv_global "1.9.3-p125"
 rbenv_gem "bundler"
 
+{ "vagrant-deploy" => "id_rsa", "vagrant-deploy.pub" => "id_rsa.pub" }.each do |from, to|
+  cookbook_file "/home/#{node['youroute']['deploy_user']}/.ssh/#{to}" do
+    source from
+    owner node['youroute']['deploy_user']
+    group node['youroute']['deploy_user']
+    mode "600"
+  end
+end
+
 # Create ssh deploy-wrapper
-cookbook_file "/tmp/wrap-ssh4git.sh" do
-  source "wrap-ssh4git.sh"
+template "/tmp/wrap-ssh4git.sh" do
+  source "wrap-ssh4git.sh.erb"
   owner "vagrant"
   mode 0700
 end

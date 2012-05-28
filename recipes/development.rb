@@ -52,7 +52,7 @@ rbenv_global "1.9.3-p125-perf"
 end
 
 ['vagrant-deploy','vagrant-deploy.pub'].each do |name|
-  cookbook_file "/home/vagrant/.ssh/#{name}" do
+  template "/home/vagrant/.ssh/#{name}" do
     source name
     owner "vagrant"
     group "vagrant"
