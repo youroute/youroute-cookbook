@@ -60,7 +60,7 @@ rbenv_gem "bundler"
 # end
 
 youroute_unicorn "youroute" do
-  root         "/srv/youroute"
+  root         "/srv/youroute/current"
   runit_user   "ubuntu"
   runit_group  "ubuntu"
   server_names [ "dev.youroute.ru" ]
