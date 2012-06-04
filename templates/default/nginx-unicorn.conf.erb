@@ -16,7 +16,7 @@ server {
 
   location /system {
     if (!-f $request_filename) {
-      rewrite (.*) http://s3-eu-west-1.amazonaws.com/youroute-main$1 break;
+      rewrite (.*) http://s3-eu-west-1.amazonaws.com/<%= @s3_bucket_name %>$1 break;
     }
   }
 
