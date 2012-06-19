@@ -9,6 +9,8 @@
 
 include_recipe    "youroute::default"
 
+node.load_attribute_by_short_filename("production", "youroute")
+
 # vagrant ssh hangs up fix
 template "/etc/rc.local" do
   source "rc.local"
@@ -124,16 +126,6 @@ youroute_unicorn "youroute" do
   serve_precompiled_assets false
   rails_env "development"
 end
-
-rbenv_gem "fakes3"
-
-directory "/mnt/fakes3/" do
-  owner "vagrant"
-  group "vagrant"
-  action :create
-end
-
-runit_service "fakes3"
 
 runit_service "guard-youroute" do
   options :rails_root => "/srv/youroute"
