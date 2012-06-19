@@ -52,7 +52,7 @@ rbenv_global "1.9.3-p125-perf"
 end
 
 ['vagrant-deploy','vagrant-deploy.pub'].each do |name|
-  template "/home/vagrant/.ssh/#{name}" do
+  cookbook_file "/home/vagrant/.ssh/#{name}" do
     source name
     owner "vagrant"
     group "vagrant"
@@ -77,8 +77,8 @@ bash "copy developer keys" do
   EOH
 end
 
-cookbook_file "/tmp/wrap-ssh4git.sh" do
-  source "wrap-ssh4git.sh"
+template "/tmp/wrap-ssh4git.sh" do
+  source "wrap-ssh4git.sh.erb"
   owner "vagrant"
   mode 0700
 end
