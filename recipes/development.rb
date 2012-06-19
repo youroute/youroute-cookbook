@@ -9,8 +9,6 @@
 
 include_recipe    "youroute::default"
 
-node.load_attribute_by_short_filename("production", "youroute")
-
 # vagrant ssh hangs up fix
 template "/etc/rc.local" do
   source "rc.local"
