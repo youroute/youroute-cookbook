@@ -33,7 +33,8 @@ require_recipe "mosh::source"
   ###
   'libsqlite3-dev', # this is for bundle install after rails new
   'imagemagick', # for paperclip
-  'htop' # for process monitoring
+  'htop', # for process monitoring
+  'openjdk-7-jre'
 ].each do |name|
   package name do
     action :install
