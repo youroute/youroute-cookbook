@@ -27,10 +27,10 @@ youroute_unicorn "youroute" do
   password_protection true
 end
 
-require_recipe "gitlabhq"
+# require_recipe "gitlabhq"
 
-youroute_unicorn "gitlabhq" do
-  root         "/home/gitlabhq/gitlabhq/current"
-  runit_user   "gitlabhq"
-  runit_group  "gitlabhq"
-end
+# youroute_unicorn "gitlabhq" do
+#   root         "/home/gitlabhq/gitlabhq/current"
+#   runit_user   "gitlabhq"
+#   runit_group  "gitlabhq"
+# end
