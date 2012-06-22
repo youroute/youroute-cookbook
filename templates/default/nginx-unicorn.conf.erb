@@ -7,7 +7,7 @@ server {
 <% if @server_names %>
   server_name  <%= @server_names.join(',') %>;
 <% else %>
-  server_name  <%= @app_name %>.youroute.local;
+  server_name  <%= @app_name %>.youroute.local <%= @app_name %>.youroute.ru;
 <% end %>
 
   root <%= @root %>/public;
