@@ -9,7 +9,8 @@ action :create do
       :root => new_resource.root,
       :server_names => new_resource.server_names,
       :serve_precompiled_assets => new_resource.serve_precompiled_assets,
-      :password_protection => new_resource.password_protection
+      :password_protection => new_resource.password_protection,
+      :s3_bucket_name => new_resource.s3_bucket_name
     )
   end
 
