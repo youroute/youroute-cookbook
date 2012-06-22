@@ -16,7 +16,7 @@ rbenv_gem "bundler"
 cookbook_file "/srv/youroute/current/htpasswd" do
   owner node['user']
   group node['user']
-  mode "700"
+  mode "755"
 end
 
 youroute_unicorn "youroute" do
