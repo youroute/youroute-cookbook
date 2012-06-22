@@ -9,8 +9,6 @@
 
 include_recipe "youroute::default"
 
-node.load_attribute_by_short_filename("staging", "youroute") # TODO: place here include_attribute "staging"
-
 rbenv_ruby "1.9.3-p125"
 rbenv_global "1.9.3-p125"
 rbenv_gem "bundler"
