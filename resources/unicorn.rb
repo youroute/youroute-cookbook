@@ -4,6 +4,7 @@ attribute :name,                       :kind_of => String, :name_attribute => tr
 attribute :server_names,               :kind_of => Array, :default => nil
 attribute :root,                       :kind_of => String
 attribute :serve_precompiled_assets,   :kind_of => [ TrueClass, FalseClass ], :default => true
+attribute :password_protection,        :kind_of => [ TrueClass, FalseClass ], :default => false
 attribute :s3_bucket_name,             :kind_of => String, :default => "youroute-media"
 attribute :runit_shell,                :kind_of => String, :default => "/bin/zsh"
 attribute :runit_user,                 :kind_of => String, :default => "unicorn"

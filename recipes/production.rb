@@ -27,7 +27,7 @@ rbenv_gem "bundler"
 # # Create ssh deploy-wrapper
 # template "/tmp/wrap-ssh4git.sh" do
 #   source "wrap-ssh4git.sh.erb"
-#   owner "vagrant"
+#   owner node['user']
 #   mode 0700
 # end
 

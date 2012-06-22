@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+node['user'] = 'vagrant'
+
 include_recipe    "youroute::default"
 
 # vagrant ssh hangs up fix
@@ -52,16 +54,16 @@ rbenv_global "1.9.3-p125-perf"
 end
 
 ['vagrant-deploy','vagrant-deploy.pub'].each do |name|
-  cookbook_file "/home/vagrant/.ssh/#{name}" do
+  cookbook_file "/home/#{node['user']}/.ssh/#{name}" do
     source name
-    owner "vagrant"
-    group "vagrant"
+    owner node['user']
+    group node['user']
     mode "600"
   end
 end
 
 bash "copy developer keys" do
-  user "vagrant"
+  user node['user']
   cwd "/tmp/ssh-keys"
   code <<-EOH
   for file in *
@@ -70,7 +72,7 @@ bash "copy developer keys" do
     then
       if test ! "$file" = "known_hosts" && test ! "$file" = "authorized_keys"
       then
-        cp "$file" "/home/vagrant/.ssh/"
+        cp "$file" "/home/<%= node['user'] %>/.ssh/"
       fi
     fi
   done
@@ -79,7 +81,7 @@ end
 
 template "/tmp/wrap-ssh4git.sh" do
   source "wrap-ssh4git.sh.erb"
-  owner "vagrant"
+  owner node['user']
   mode 0700
 end
 
@@ -90,7 +92,7 @@ youroute_path = "/srv/youroute"
 git youroute_path do
   repository "git@github.com:youroute/youroute.git"
   branch "develop"
-  user "vagrant"
+  user node['user']
   action :sync
   ssh_wrapper "/tmp/wrap-ssh4git.sh"
   not_if "test -d #{youroute_path}"
@@ -118,8 +120,8 @@ end
 
 youroute_unicorn "youroute" do
   root "/srv/youroute/"
-  runit_user "vagrant"
-  runit_group "vagrant"
+  runit_user node['user']
+  runit_group node['user']
   server_names [ "dev.youroute.local", "youroute.local" ]
   serve_precompiled_assets false
   rails_env "development"

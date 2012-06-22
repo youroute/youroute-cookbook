@@ -26,6 +26,11 @@ server {
     proxy_set_header Host $http_host;
     proxy_redirect off;
 
+  <% if @password_protection %>
+    auth_basic  "Login";
+    auth_basic_user_file  <%= @root %>/htpasswd;
+  <% end %>
+
     if (!-f $request_filename) {
       proxy_pass http://<%= @app_name %>_cluster;
       break;
