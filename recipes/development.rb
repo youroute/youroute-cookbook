@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node['user'] = 'vagrant'
+node['user'].replace 'vagrant' # replace value and change all relative variables
 
 include_recipe    "youroute::default"
 

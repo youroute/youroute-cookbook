@@ -1,4 +1,4 @@
-set['user'] = node['user'] || 'ubuntu'
+set['user'] = 'ubuntu'
 set['localegen']['lang'] = [ "en_GB.UTF-8 UTF-8", "ru_RU.UTF-8 UTF-8" ]
 set['locale']['lang'] = "en_US.UTF-8"
 set['zsh']['users'] = [ node['user'] ]
