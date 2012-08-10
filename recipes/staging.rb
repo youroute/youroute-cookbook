@@ -36,6 +36,14 @@ youroute_unicorn "youroute" do
   password_protection true
 end
 
+youroute_unicorn "avia" do
+  root         "/srv/avia/current"
+  runit_user   "ubuntu"
+  runit_group  "ubuntu"
+  server_names [ "avia.dev.youroute.ru" ]
+  password_protection true
+end
+
 # require_recipe "gitlabhq"
 
 # youroute_unicorn "gitlabhq" do
