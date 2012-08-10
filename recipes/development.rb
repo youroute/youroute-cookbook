@@ -126,7 +126,3 @@ youroute_unicorn "youroute" do
   serve_precompiled_assets false
   rails_env "development"
 end
-
-runit_service "guard-youroute" do
-  options :rails_root => "/srv/youroute"
-end
