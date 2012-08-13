@@ -30,6 +30,7 @@ end
 
 youroute_unicorn "youroute" do
   root         "/srv/youroute/current"
+  rails_env    "staging"
   runit_user   "ubuntu"
   runit_group  "ubuntu"
   server_names [ "dev.youroute.ru" ]
