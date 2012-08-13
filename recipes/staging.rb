@@ -40,6 +40,7 @@ end
 youroute_unicorn "avia" do
   root         "/srv/avia/current"
   rails_env    "development"
+  serve_precompiled_assets false
   runit_user   "ubuntu"
   runit_group  "ubuntu"
   server_names [ "avia.dev.youroute.ru" ]
