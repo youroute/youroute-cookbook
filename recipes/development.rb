@@ -53,7 +53,7 @@ rbenv_global "1.9.3-p125-perf"
   rbenv_gem name
 end
 
-['vagrant-deploy','vagrant-deploy.pub'].each do |name|
+['youroute-deploy','youroute-deploy.pub'].each do |name|
   cookbook_file "/home/#{node['user']}/.ssh/#{name}" do
     source name
     owner node['user']

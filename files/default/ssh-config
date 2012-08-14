@@ -1,0 +1,9 @@
+Host github-youroute
+HostName github.com
+User git
+IdentityFile ~/.ssh/youroute-deploy
+
+Host github-avia
+HostName github.com
+User git
+IdentityFile ~/.ssh/avia-deploy

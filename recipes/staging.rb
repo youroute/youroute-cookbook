@@ -13,13 +13,17 @@ rbenv_ruby "1.9.3-p125"
 rbenv_global "1.9.3-p125"
 rbenv_gem "bundler"
 
-{ "vagrant-deploy" => "id_rsa", "vagrant-deploy.pub" => "id_rsa.pub" }.each do |from, to|
+{ "youroute-deploy" => "id_rsa", "youroute-deploy.pub" => "id_rsa.pub" }.each do |from, to|
   cookbook_file "/home/#{node['youroute']['deploy_user']}/.ssh/#{to}" do
     source from
     owner node['youroute']['deploy_user']
     group node['youroute']['deploy_user']
     mode "600"
   end
+end
+
+cookbook_file "/home/#{node['youroute']['deploy_user']}/.ssh/config" do
+  source "ssh-config"
 end
 
 cookbook_file "/srv/youroute/current/htpasswd" do
