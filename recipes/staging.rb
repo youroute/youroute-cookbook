@@ -13,7 +13,9 @@ rbenv_ruby "1.9.3-p125"
 rbenv_global "1.9.3-p125"
 rbenv_gem "bundler"
 
-{ "youroute-deploy" => "id_rsa", "youroute-deploy.pub" => "id_rsa.pub" }.each do |from, to|
+{ "youroute-deploy" => "id_rsa", "youroute-deploy.pub" => "id_rsa.pub",
+  "youroute-deploy" => "youroute-deploy", "youroute-deploy.pub" => "youroute-deploy.pub",
+  "avia-deploy" => "avia-deploy", "avia-deploy.pub" => "avia-deploy.pub" }.each do |from, to|
   cookbook_file "/home/#{node['youroute']['deploy_user']}/.ssh/#{to}" do
     source from
     owner node['youroute']['deploy_user']
