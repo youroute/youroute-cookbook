@@ -11,6 +11,17 @@ node['user'].replace 'vagrant' # replace value and change all relative variables
 
 include_recipe    "youroute::default"
 
+[
+  # packages for capybara-webkit gem
+  'xvfb',
+  'libqt4-dev',
+  'libqtwebkit-dev'
+].each do |name|
+  package name do
+    action :install
+  end
+end
+
 # vagrant ssh hangs up fix
 template "/etc/rc.local" do
   source "rc.local"

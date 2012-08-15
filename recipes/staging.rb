@@ -9,6 +9,17 @@
 
 include_recipe "youroute::default"
 
+[
+  # packages for capybara-webkit gem
+  'xvfb',
+  'libqt4-dev',
+  'libqtwebkit-dev'
+].each do |name|
+  package name do
+    action :install
+  end
+end
+
 rbenv_ruby "1.9.3-p125"
 rbenv_global "1.9.3-p125"
 rbenv_gem "bundler"
