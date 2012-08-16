@@ -60,7 +60,7 @@ end
 
 logrotate_app "youroute" do
   cookbook "logrotate"
-  path "/srv/youroute/current/logs/staging.log"
+  path "/srv/youroute/current/log/staging.log"
   frequency "daily"
   rotate 30
   create "644 root adm"
