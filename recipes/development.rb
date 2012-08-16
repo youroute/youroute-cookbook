@@ -133,7 +133,17 @@ youroute_unicorn "youroute" do
   root "/srv/youroute/"
   runit_user node['user']
   runit_group node['user']
-  server_names [ "dev.youroute.local", "youroute.local" ]
+  server_names [ "dev.youroute.dev", "youroute.dev" ]
   serve_precompiled_assets false
   rails_env "development"
+end
+
+youroute_unicorn "avia" do
+  root         "/srv/avia/"
+  rails_env    "development"
+  serve_precompiled_assets false
+  runit_user   "ubuntu"
+  runit_group  "ubuntu"
+  server_names [ "avia.youroute.dev" ]
+  password_protection true
 end
