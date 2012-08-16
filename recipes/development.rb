@@ -145,5 +145,4 @@ youroute_unicorn "avia" do
   runit_user   "ubuntu"
   runit_group  "ubuntu"
   server_names [ "avia.youroute.dev" ]
-  password_protection true
 end
