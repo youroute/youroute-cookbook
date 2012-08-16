@@ -28,7 +28,7 @@ server {
 
   <% if @password_protection %>
     auth_basic  "Login";
-    auth_basic_user_file  <%= @root %>/htpasswd;
+    auth_basic_user_file  <%= @root %>/shared/htpasswd;
   <% end %>
 
     if (!-f $request_filename) {
