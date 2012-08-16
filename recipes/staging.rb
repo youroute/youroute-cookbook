@@ -51,8 +51,8 @@ end
 youroute_unicorn "youroute" do
   root         "/srv/youroute/current"
   rails_env    "staging"
-  runit_user   "ubuntu"
-  runit_group  "ubuntu"
+  runit_user   node['user']
+  runit_group  node['user']
   server_names [ "dev.youroute.ru" ]
   password_protection true
 end
@@ -70,8 +70,8 @@ youroute_unicorn "avia" do
   root         "/srv/avia/current"
   rails_env    "development"
   serve_precompiled_assets false
-  runit_user   "ubuntu"
-  runit_group  "ubuntu"
+  runit_user   node['user']
+  runit_group  node['user']
   server_names [ "avia.dev.youroute.ru" ]
   password_protection true
 end

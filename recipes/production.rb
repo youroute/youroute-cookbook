@@ -69,7 +69,7 @@ end
 
 youroute_unicorn "youroute" do
   root         "/srv/youroute/current"
-  runit_user   "ubuntu"
-  runit_group  "ubuntu"
+  runit_user   node['user']
+  runit_group  node['user']
   server_names [ "dev.youroute.ru" ]
 end
