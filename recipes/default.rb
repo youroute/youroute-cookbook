@@ -23,6 +23,7 @@ require_recipe "runit"
 require_recipe "nginx::source"
 require_recipe "timezone"
 require_recipe "mosh"
+require_recipe "logrotate"
 
 [
   'console-cyrillic',

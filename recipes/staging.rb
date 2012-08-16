@@ -57,6 +57,15 @@ youroute_unicorn "youroute" do
   password_protection true
 end
 
+
+logrotate_app "youroute" do
+  cookbook "logrotate"
+  path "/srv/youroute/current/logs/production.log"
+  frequency "daily"
+  rotate 30
+  create "644 root adm"
+end
+
 youroute_unicorn "avia" do
   root         "/srv/avia/current"
   rails_env    "development"
