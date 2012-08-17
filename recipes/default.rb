@@ -36,7 +36,8 @@ require_recipe "logrotate"
   'imagemagick', # for paperclip
   'htop', # for process monitoring
   'openjdk-7-jre', # required by Solr
-  'redis-server'
+  'redis-server',
+  'ntp'
 ].each do |name|
   package name do
     action :install
