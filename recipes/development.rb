@@ -46,20 +46,22 @@ mysql_database_user 'developer' do
   action :grant
 end
 
-bash "install ruby-1.9.3-p125-perf" do
+ruby_version = "1.9.3-p194"
+
+bash "install ruby-#{ruby_version}-perf" do
   # code below executes "curl https://raw.github.com/gist/1688857/rbenv.sh | sh"
   code <<-EOH
     source /etc/zsh/zshenv
     source ~/.zshrc
-    VERSION="1.9.3-p125"
+    VERSION="#{ruby_version}"
     curl https://raw.github.com/gist/1688857/2-$VERSION-patched.sh > /tmp/$VERSION-perf
     rbenv install /tmp/$VERSION-perf
   EOH
   user 'rbenv'
-  not_if { ruby_version_installed?('1.9.3-p125-perf') }
+  not_if { ruby_version_installed?("#{ruby_version}-perf") }
 end
 
-rbenv_global "1.9.3-p125-perf"
+rbenv_global "#{ruby_version}-perf"
 %w(bundler pry).each do |name|
   rbenv_gem name
 end
