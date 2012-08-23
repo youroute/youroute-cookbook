@@ -5,7 +5,7 @@ upstream <%= @app_name %>_cluster {
 server {
   listen  80;
 <% if @server_names %>
-  server_name  <%= @server_names.join(',') %>;
+  server_name  <%= @server_names.join(' ') %>;
 <% else %>
   server_name  <%= @app_name %>.youroute.local <%= @app_name %>.youroute.ru;
 <% end %>
