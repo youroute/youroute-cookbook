@@ -73,7 +73,7 @@ template "/etc/nginx/sites-enabled/avia.local.conf" do
   group "root"
   variables(
     :app_name => "avia",
-    :root => "/srv/youroute",
+    :root => "/srv/youroute/current",
     :server_names => [ "avia.dev.youroute.ru", "avia.youroute.dev" ],
     :serve_precompiled_assets => false,
     :password_protection => true
@@ -82,7 +82,7 @@ end
 
 runit_service "avia" do
   options(
-    :rails_root => "/srv/avia",
+    :rails_root => "/srv/avia/current",
     :rails_env => "development",
     :app_name => "avia",
     :user => node['user']

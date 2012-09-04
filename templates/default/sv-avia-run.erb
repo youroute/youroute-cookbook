@@ -12,4 +12,4 @@ mkdir -p $RAILS_ROOT/shared
 chmod 777 $RAILS_ROOT/shared
 mkdir -p $RAILS_ROOT/shared/pids
 chmod 777 $RAILS_ROOT/shared/pids
-exec chpst -u $USER:$GROUP foreman start
+exec chpst -u $USER:$GROUP bundle exec foreman start
