@@ -1,0 +1,15 @@
+#!/bin/zsh
+exec 2>&1
+export SHELL=<%= @options[:shell] || "/bin/zsh" %>
+export USER=<%= @options[:user] || "unicorn" %>
+<% @options[:group] ||= @options[:user] %>
+export GROUP=<%= @options[:group] %>
+export RAILS_ROOT=<%= @options[:rails_root] %>
+export RAILS_ENV=<%= @options[:rails_env] || "production" %>
+export APPLICATION_NAME=<%= @options[:app_name] %>
+cd $RAILS_ROOT
+mkdir -p $RAILS_ROOT/shared
+chmod 777 $RAILS_ROOT/shared
+mkdir -p $RAILS_ROOT/shared/pids
+chmod 777 $RAILS_ROOT/shared/pids
+exec chpst -u $USER:$GROUP foreman start
