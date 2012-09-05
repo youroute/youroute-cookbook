@@ -140,25 +140,11 @@ youroute_unicorn "youroute" do
   rails_env "development"
 end
 
-template "/etc/nginx/sites-enabled/avia.local.conf" do
-  source "nginx-unicorn.conf.erb"
-  mode "644"
-  owner "root"
-  group "root"
-  variables(
-    :app_name => "avia",
-    :root => "/srv/youroute",
-    :server_names => [ "avia.dev.youroute.ru", "avia.youroute.dev" ],
-    :serve_precompiled_assets => false,
-    :password_protection => false
-  )
-end
-
-runit_service "avia" do
-  options(
-    :rails_root => "/srv/avia",
-    :rails_env => "development",
-    :app_name => "avia",
-    :user => node['user']
-  )
+youroute_unicorn "avia" do
+  root         "/srv/avia/"
+  rails_env    "development"
+  serve_precompiled_assets false
+  runit_user node['user']
+  runit_group node['user']
+  server_names [ "avia.youroute.dev" ]
 end
