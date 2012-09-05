@@ -66,6 +66,9 @@ logrotate_app "youroute" do
   create "644 root adm"
 end
 
+runit_service "avia-resque"
+runit_service "avia-faye"
+
 youroute_unicorn "avia" do
   root         "/srv/avia/current"
   rails_env    "development"
