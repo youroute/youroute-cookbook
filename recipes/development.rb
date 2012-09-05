@@ -140,8 +140,17 @@ youroute_unicorn "youroute" do
   rails_env "development"
 end
 
-runit_service "avia-resque"
-runit_service "avia-faye"
+runit_service "avia-resque" do
+  options(
+    :rails_root => "/srv/avia/current"
+  )
+end
+
+runit_service "avia-faye" do
+  options(
+    :rails_root => "/srv/avia/current"
+  )
+end
 
 youroute_unicorn "avia" do
   root         "/srv/avia/"
