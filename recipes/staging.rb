@@ -80,8 +80,8 @@ end
 
 youroute_unicorn "avia" do
   root         "/srv/avia/current"
-  rails_env    "development"
-  serve_precompiled_assets false
+  rails_env    "staging"
+  serve_precompiled_assets true
   runit_user   node['user']
   runit_group  node['user']
   server_names [ "avia.dev.youroute.ru" ]
