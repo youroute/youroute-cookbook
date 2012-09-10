@@ -14,15 +14,19 @@ server {
 
   client_max_body_size 10m;
 
-  # Maintenance page rule
+  ### MAINTENANCE PAGE RULE ###
   if (-f $document_root/system/maintenance.html) {
     return 503;
   }
+
   error_page 503 @maintenance;
   location @maintenance {
-    rewrite  ^(.*)$  /system/maintenance.html last;
-    break;
+    root <%= @root %>/public;
+    if (!-f $request_filename) {
+        rewrite ^(.*)$ /system/maintenance.html break;
+    }
   }
+  ### END OF MAINTENANCE PAGE RULE ###
 
   location /system {
     if (!-f $request_filename) {
