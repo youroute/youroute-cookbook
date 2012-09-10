@@ -1,4 +1,4 @@
 #!/bin/zsh
 exec 2>&1
 cd <%= @options[:rails_root] %>
-exec chpst bundle exec rake workers:start COUNT=8
+exec chpst bundle exec rake workers:start COUNT=8 RAILS_ENV=<%= @options[:rails_env] %>

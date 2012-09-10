@@ -68,7 +68,8 @@ end
 
 runit_service "avia-resque" do
   options(
-    :rails_root => "/srv/avia/current"
+    :rails_root => "/srv/avia/current",
+    :rails_env => "production"
   )
 end
 
