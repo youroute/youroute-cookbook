@@ -80,12 +80,11 @@ end
 
 youroute_unicorn "avia" do
   root         "/srv/avia/current"
-  rails_env    "staging"
+  rails_env    "production"
   serve_precompiled_assets true
   runit_user   node['user']
   runit_group  node['user']
-  server_names [ "avia.dev.youroute.ru" ]
-  password_protection true
+  server_names [ "avia.youroute.ru" ]
 end
 
 # require_recipe "gitlabhq"
