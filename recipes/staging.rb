@@ -89,8 +89,8 @@ youroute_unicorn "avia-dev" do
 end
 
 runit_service "avia-dev-resque" do
-  template_name "avia"
-  log_template_name "avia"
+  template_name "avia-resque"
+  log_template_name "avia-resque"
   options(
     :rails_root => "/srv/avia-dev/current",
     :rails_env => "staging"
@@ -98,8 +98,8 @@ runit_service "avia-dev-resque" do
 end
 
 runit_service "avia-dev-faye" do
-  template_name "avia"
-  log_template_name "avia"
+  template_name "avia-faye"
+  log_template_name "avia-faye"
   options(
     :rails_root => "/srv/avia-dev/current"
   )
