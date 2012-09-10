@@ -142,13 +142,13 @@ end
 
 runit_service "avia-resque" do
   options(
-    :rails_root => "/srv/avia/current"
+    :rails_root => "/srv/avia/"
   )
 end
 
 runit_service "avia-faye" do
   options(
-    :rails_root => "/srv/avia/current"
+    :rails_root => "/srv/avia/"
   )
 end
 
