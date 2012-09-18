@@ -142,7 +142,9 @@ end
 
 runit_service "avia-resque" do
   options(
-    :rails_root => "/srv/avia/"
+    :rails_root => "/srv/avia/",
+    :workers_count => 2,
+    :verbose => 1
   )
 end
 
