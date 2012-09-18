@@ -21,6 +21,14 @@ logrotate_app "youroute" do
   create "644 root adm"
 end
 
+logrotate_app "nginx" do
+  cookbook "logrotate"
+  path "/var/log/nginx/*.log"
+  frequency "daily"
+  rotate 30
+  create "644 root adm"
+end
+
 # { "youroute-deploy" => "id_rsa", "youroute-deploy.pub" => "id_rsa.pub" }.each do |from, to|
 #   cookbook_file "/home/#{node['youroute']['deploy_user']}/.ssh/#{to}" do
 #     source from
