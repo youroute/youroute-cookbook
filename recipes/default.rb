@@ -37,8 +37,7 @@ require_recipe "logrotate"
   'htop', # for process monitoring
   'openjdk-7-jre', # required by Solr
   'redis-server',
-  'ntp',
-  'mongodb' # replace at mongodb recipe
+  'ntp'
 ].each do |name|
   package name do
     action :install
