@@ -59,19 +59,6 @@ logrotate_app "youroute" do
   create "644 root adm"
 end
 
-runit_service "avia-resque" do
-  options(
-    :rails_root => "/srv/avia/current",
-    :rails_env => "production"
-  )
-end
-
-runit_service "avia-faye" do
-  options(
-    :rails_root => "/srv/avia/current"
-  )
-end
-
 youroute_unicorn "avia-dev" do
   root         "/srv/avia-dev/current"
   rails_env    "production"
@@ -81,20 +68,16 @@ youroute_unicorn "avia-dev" do
   server_names [ "avia.youroute.ru" ]
 end
 
-runit_service "avia-dev-resque" do
-  template_name "avia-resque"
-  log_template_name "avia-resque"
+runit_service "avia-resque" do
   options(
-    :rails_root => "/srv/avia-dev/current",
+    :rails_root => "/srv/avia/current",
     :rails_env => "staging"
   )
 end
 
-runit_service "avia-dev-faye" do
-  template_name "avia-faye"
-  log_template_name "avia-faye"
+runit_service "avia-faye" do
   options(
-    :rails_root => "/srv/avia-dev/current"
+    :rails_root => "/srv/avia/current"
   )
 end
 
