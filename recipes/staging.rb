@@ -35,13 +35,6 @@ rbenv_gem "bundler"
   end
 end
 
-cookbook_file "/home/#{node['youroute']['deploy_user']}/.ssh/config" do
-  source "ssh-config"
-  owner node['youroute']['deploy_user']
-  group node['youroute']['deploy_user']
-  mode "755"
-end
-
 cookbook_file "/srv/youroute/current/htpasswd" do
   owner node['user']
   group node['user']
