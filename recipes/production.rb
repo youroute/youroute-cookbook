@@ -9,6 +9,14 @@
 
 include_recipe "youroute::default"
 
+[
+  'openjdk-7-jre' # required by Solr
+].each do |name|
+  package name do
+    action :install
+  end
+end
+
 rbenv_ruby "1.9.3-p125"
 rbenv_global "1.9.3-p125"
 rbenv_gem "bundler"

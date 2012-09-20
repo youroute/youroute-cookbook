@@ -13,7 +13,9 @@ include_recipe "youroute::default"
   # packages for capybara-webkit gem
   'xvfb',
   'libqt4-dev',
-  'libqtwebkit-dev'
+  'libqtwebkit-dev',
+  'openjdk-7-jre', # required by Solr
+  'mongodb' # replace at mongodb recipe
 ].each do |name|
   package name do
     action :install
