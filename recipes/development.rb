@@ -68,15 +68,6 @@ rbenv_global "#{ruby_version}-perf"
   rbenv_gem name
 end
 
-['youroute-deploy','youroute-deploy.pub'].each do |name|
-  cookbook_file "/home/#{node['user']}/.ssh/#{name}" do
-    source name
-    owner node['user']
-    group node['user']
-    mode "600"
-  end
-end
-
 bash "copy developer keys" do
   user node['user']
   cwd "/tmp/ssh-keys"
@@ -94,12 +85,6 @@ bash "copy developer keys" do
   EOH
 end
 
-template "/tmp/wrap-ssh4git.sh" do
-  source "wrap-ssh4git.sh.erb"
-  owner node['user']
-  mode 0700
-end
-
 ####### TODO: move it into provider
 
 youroute_path = "/srv/youroute"
@@ -109,7 +94,6 @@ git youroute_path do
   branch "develop"
   user node['user']
   action :sync
-  ssh_wrapper "/tmp/wrap-ssh4git.sh"
   not_if "test -d #{youroute_path}"
 end
 
