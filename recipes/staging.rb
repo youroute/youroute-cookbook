@@ -41,6 +41,15 @@ cookbook_file "/srv/youroute/current/htpasswd" do
   mode "755"
 end
 
+runit_service "youroute-solr" do
+  template_name "solr"
+  log_template_name "solr"
+  options(
+    :rails_root => "/srv/youroute/current",
+    :rails_env => "staging"
+  )
+end
+
 youroute_unicorn "youroute" do
   root         "/srv/youroute/current"
   rails_env    "staging"

@@ -46,6 +46,15 @@ logrotate_app "nginx" do
   create "644 root adm"
 end
 
+runit_service "youroute-solr" do
+  template_name "solr"
+  log_template_name "solr"
+  options(
+    :rails_root => "/srv/youroute/current",
+    :rails_env => "production"
+  )
+end
+
 youroute_unicorn "youroute" do
   root         "/srv/youroute/current"
   runit_user   node['user']
