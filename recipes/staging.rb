@@ -68,15 +68,6 @@ logrotate_app "youroute" do
   create "644 root adm"
 end
 
-youroute_unicorn "avia-dev" do
-  root         "/srv/avia-dev/current"
-  rails_env    "production"
-  serve_precompiled_assets true
-  runit_user   node['user']
-  runit_group  node['user']
-  server_names [ "avia.youroute.ru" ]
-end
-
 runit_service "avia-resque" do
   options(
     :rails_root => "/srv/avia/current",
@@ -90,20 +81,12 @@ runit_service "avia-faye" do
   )
 end
 
-youroute_unicorn "avia-dev" do
-  root         "/srv/avia-dev/current"
+youroute_unicorn "avia" do
+  root         "/srv/avia/current"
   rails_env    "staging"
   serve_precompiled_assets true
   runit_user   node['user']
   runit_group  node['user']
-  server_names [ "avia.dev.youroute.ru" ]
+  server_names [ "dev.avia.youroute.ru" ]
   password_protection true
 end
-
-# require_recipe "gitlabhq"
-
-# youroute_unicorn "gitlabhq" do
-#   root         "/home/gitlabhq/gitlabhq/current"
-#   runit_user   "gitlabhq"
-#   runit_group  "gitlabhq"
-# end
