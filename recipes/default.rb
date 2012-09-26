@@ -42,3 +42,8 @@ require_recipe "logrotate"
     action :install
   end
 end
+
+cookbook_file "/usr/bin/chef-provision" do
+  source "chef-provision"
+  mode "755"
+end
