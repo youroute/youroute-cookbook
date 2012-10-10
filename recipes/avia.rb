@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+node[:production] = true
+
 include_recipe "youroute::default"
 
 [

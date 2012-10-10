@@ -1,0 +1,34 @@
+#!/bin/bash
+FGRED=`echo "\033[31m"`
+FGCYAN=`echo "\033[36m"`
+BGRED=`echo "\033[41m"`
+FGBLUE=`echo "\033[35m"`
+BGGREEN=`echo "\033[42m"`
+NORMAL=`echo "\033[m"`
+
+hn=`hostname`
+echo "       ======================================="
+echo "                Welcome to "$hn
+echo "       ======================================="
+btime=`who -b | sed -e 's/[^A-Z]*//'`
+utime=`uptime | sed -e 's/ [0-9:]* up />/' -e 's/,.*//'`
+echo "   ==== BOOT TIME ====           ==== UPTIME ===="
+echo "        "$btime"                   "$utime
+echo "===================== DISK USAGE ======================"
+df -h
+echo "================== LOGGED IN USERS ===================="
+users
+
+<% if node[:production] %>
+echo -en $FGRED
+echo "#######################################################"
+echo "#                                                     #"
+echo "#                   !!!WARNING!!!                     #"
+echo "#           YOU ARE AT PRODUCTION SERVER              #"
+echo "#                PLEASE, BE CAREFUL                   #"
+echo "#                                                     #"
+echo "#######################################################"
+echo -en $NORMAL
+<% end %>
+
+[ -f /etc/motd.tail ] && cat /etc/motd.tail || true
