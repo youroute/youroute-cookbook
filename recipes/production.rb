@@ -61,5 +61,5 @@ youroute_unicorn "youroute" do
   root         "/srv/youroute/current"
   runit_user   node['user']
   runit_group  node['user']
-  server_names [ "dev.youroute.ru" ]
+  server_names [ "prod.youroute.ru", "youroute.ru" ]
 end
