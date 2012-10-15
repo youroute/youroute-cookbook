@@ -63,3 +63,10 @@ server {
   #   add_header  Content-Disposition attachment;
   # }
 }
+
+<% if @redirect_subdomains_at %>
+server {
+  server_name *.<%= @redirect_subdomains_at %>;
+  rewrite ^ http://<%= @redirect_subdomains_at %>$request_uri? permanent;
+}
+<% end %>

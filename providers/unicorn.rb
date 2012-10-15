@@ -10,7 +10,8 @@ action :create do
       :server_names => new_resource.server_names,
       :serve_precompiled_assets => new_resource.serve_precompiled_assets,
       :password_protection => new_resource.password_protection,
-      :s3_bucket_name => new_resource.s3_bucket_name
+      :s3_bucket_name => new_resource.s3_bucket_name,
+      :redirect_subdomains_at => new_resource.redirect_subdomains_at
     )
   end
 

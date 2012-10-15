@@ -10,6 +10,7 @@ attribute :runit_shell,                :kind_of => String, :default => "/bin/zsh
 attribute :runit_user,                 :kind_of => String, :default => "unicorn"
 attribute :runit_group,                :kind_of => String, :default => "unicorn"
 attribute :rails_env,                  :kind_of => String, :default => "production"
+attribute :redirect_subdomains_at,     :kind_of => String, :default => nil
 
 def initialize(*args)
   super

@@ -62,4 +62,5 @@ youroute_unicorn "youroute" do
   runit_user   node['user']
   runit_group  node['user']
   server_names [ "prod.youroute.ru", "youroute.ru" ]
+  redirect_subdomains_at "youroute.ru"
 end
