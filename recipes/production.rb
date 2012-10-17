@@ -66,7 +66,7 @@ youroute_unicorn "youroute" do
 end
 
 template "/etc/nginx/sites-enabled/hotels.conf" do
-  source "nginx-unicorn.conf.erb"
+  source "nginx-maintenance.conf.erb"
   mode "644"
   owner "root"
   group "root"
