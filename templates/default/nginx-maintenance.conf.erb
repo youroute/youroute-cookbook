@@ -1,0 +1,26 @@
+server {
+  listen  80;
+<% if @server_names %>
+  server_name  <%= @server_names.join(' ') %>;
+<% else %>
+  server_name  <%= @app_name %>.youroute.local <%= @app_name %>.youroute.ru;
+<% end %>
+
+  root <%= @root %>/public;
+
+  client_max_body_size 10m;
+
+  ### MAINTENANCE PAGE RULE ###
+  if (-f $document_root/system/maintenance.html) {
+    return 503;
+  }
+
+  error_page 503 @maintenance;
+  location @maintenance {
+    root <%= @root %>/public;
+    if (!-f $request_filename) {
+        rewrite ^(.*)$ /system/maintenance.html break;
+    }
+  }
+  ### END OF MAINTENANCE PAGE RULE ###
+}

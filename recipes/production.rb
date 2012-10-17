@@ -64,3 +64,14 @@ youroute_unicorn "youroute" do
   server_names [ "prod.youroute.ru", "youroute.ru" ]
   redirect_subdomains_at "youroute.ru"
 end
+
+template "/etc/nginx/sites-enabled/hotels.conf" do
+  source "nginx-unicorn.conf.erb"
+  mode "644"
+  owner "root"
+  group "root"
+  variables(
+    :root => "/srv/hotels/current/public",
+    :server_names => ['hotels.youroute.ru']
+  )
+end
