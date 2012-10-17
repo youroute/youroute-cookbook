@@ -58,10 +58,6 @@ server {
     add_header Cache-Control public;
   }
 <% end %>
-
-  # location ^~ /pdfs/ {
-  #   add_header  Content-Disposition attachment;
-  # }
 }
 
 <% if @redirect_subdomains_at %>
