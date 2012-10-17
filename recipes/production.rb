@@ -63,7 +63,7 @@ template "/etc/nginx/sites-enabled/hotels.conf" do
   owner "root"
   group "root"
   variables(
-    :root => "/srv/hotels/current/",
+    :root => "/srv/hotels/current",
     :server_names => ['hotels.youroute.ru']
   )
 end

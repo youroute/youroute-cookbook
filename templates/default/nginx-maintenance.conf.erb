@@ -8,8 +8,6 @@ server {
 
   root <%= @root %>/public;
 
-  client_max_body_size 10m;
-
   ### MAINTENANCE PAGE RULE ###
   if (-f $document_root/system/maintenance.html) {
     return 503;
