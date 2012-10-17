@@ -57,14 +57,6 @@ runit_service "youroute-solr" do
   )
 end
 
-youroute_unicorn "youroute" do
-  root         "/srv/youroute/current"
-  runit_user   node['user']
-  runit_group  node['user']
-  server_names [ "prod.youroute.ru", "youroute.ru" ]
-  redirect_subdomains_at "youroute.ru"
-end
-
 template "/etc/nginx/sites-enabled/hotels.conf" do
   source "nginx-maintenance.conf.erb"
   mode "644"
@@ -74,4 +66,12 @@ template "/etc/nginx/sites-enabled/hotels.conf" do
     :root => "/srv/hotels/current/",
     :server_names => ['hotels.youroute.ru']
   )
+end
+
+youroute_unicorn "youroute" do
+  root         "/srv/youroute/current"
+  runit_user   node['user']
+  runit_group  node['user']
+  server_names [ "prod.youroute.ru", "youroute.ru" ]
+  redirect_subdomains_at "youroute.ru"
 end
