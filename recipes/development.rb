@@ -127,7 +127,7 @@ runit_service "youroute-solr" do
 end
 
 youroute_unicorn "youroute" do
-  root "/srv/youroute/"
+  root "/srv/youroute"
   runit_user node['user']
   runit_group node['user']
   server_names [ "dev.youroute.dev", "youroute.dev" ]
@@ -150,7 +150,7 @@ runit_service "avia-faye" do
 end
 
 youroute_unicorn "avia" do
-  root         "/srv/avia/"
+  root         "/srv/avia"
   rails_env    "development"
   serve_precompiled_assets false
   runit_user node['user']
