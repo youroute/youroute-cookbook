@@ -90,7 +90,7 @@ end
 youroute_path = "/srv/youroute"
 
 git youroute_path do
-  repository "git@github.com:youroute/youroute.git"
+  repository "https://cb06038ca6b3250c9ebc30d74037ed2a4cfbab36:x-oauth-basic@github.com/youroute/youroute.git"
   branch "develop"
   user node['user']
   action :sync
