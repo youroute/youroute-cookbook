@@ -41,7 +41,7 @@ action :create do
     options runit_options
   end
 
-  logrotate_app new_resource.app_name do
+  logrotate_app new_resource.name do
     cookbook "logrotate"
     path "#{new_resource.root}/log/#{new_resource.rails_env}.log"
     frequency "daily"
