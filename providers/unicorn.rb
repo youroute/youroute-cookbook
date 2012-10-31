@@ -26,28 +26,28 @@ action :create do
     group "root"
   end
 
-  runit_options = {
-    :rails_root => new_resource.root,
-    :rails_env => new_resource.rails_env,
-    :app_name => new_resource.name,
-    :shell => new_resource.runit_shell,
-    :user => new_resource.runit_user,
-    :group => new_resource.runit_group
-  }
+  unicorn_provider = new_resource # do not use new_provider inside blocks. it can be redefined there
 
-  runit_service runit_options[:app_name] do
+  runit_service unicorn_provider.name do
     template_name "unicorn"
     log_template_name "unicorn"
-    options runit_options
+    options({
+      :rails_root => unicorn_provider.root,
+      :rails_env => unicorn_provider.rails_env,
+      :app_name => unicorn_provider.name,
+      :shell => unicorn_provider.runit_shell,
+      :user => unicorn_provider.runit_user,
+      :group => unicorn_provider.runit_group
+    })
   end
 
-  logrotate_app new_resource.name do
+  logrotate_app unicorn_provider.name do
     cookbook "logrotate"
-    path "#{new_resource.root}/log/#{new_resource.rails_env}.log"
+    path "#{unicorn_provider.root}/log/#{unicorn_provider.rails_env}.log"
     frequency "daily"
     rotate 30
     create "644 root adm"
-    only_if new_resource.logrotate
+    only_if unicorn_provider.logrotate
   end
 
   service "nginx" do
