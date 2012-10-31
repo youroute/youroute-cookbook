@@ -52,14 +52,6 @@ runit_service "avia-faye" do
   )
 end
 
-logrotate_app "avia" do
-  cookbook "logrotate"
-  path "/srv/avia/current/log/production.log"
-  frequency "daily"
-  rotate 30
-  create "644 root adm"
-end
-
 logrotate_app "nginx" do
   cookbook "logrotate"
   path "/var/log/nginx/*.log"

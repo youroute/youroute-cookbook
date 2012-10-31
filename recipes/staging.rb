@@ -59,15 +59,6 @@ youroute_unicorn "youroute" do
   password_protection true
 end
 
-
-logrotate_app "youroute" do
-  cookbook "logrotate"
-  path "/srv/youroute/current/log/staging.log"
-  frequency "daily"
-  rotate 30
-  create "644 root adm"
-end
-
 runit_service "avia-resque" do
   options(
     :rails_root => "/srv/avia/current",

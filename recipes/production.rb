@@ -32,14 +32,6 @@ rbenv_gem "bundler"
   end
 end
 
-logrotate_app "youroute" do
-  cookbook "logrotate"
-  path "/srv/youroute/current/log/production.log"
-  frequency "daily"
-  rotate 30
-  create "644 root adm"
-end
-
 logrotate_app "nginx" do
   cookbook "logrotate"
   path "/var/log/nginx/*.log"

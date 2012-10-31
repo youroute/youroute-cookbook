@@ -41,6 +41,15 @@ action :create do
     options runit_options
   end
 
+  logrotate_app new_resource.app_name do
+    cookbook "logrotate"
+    path "#{new_resource.root}/log/#{new_resource.rails_env}.log"
+    frequency "daily"
+    rotate 30
+    create "644 root adm"
+    only_if new_resource.logrotate
+  end
+
   service "nginx" do
     action :restart
   end

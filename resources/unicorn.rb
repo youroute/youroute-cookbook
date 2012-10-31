@@ -11,6 +11,7 @@ attribute :runit_user,                 :kind_of => String, :default => "unicorn"
 attribute :runit_group,                :kind_of => String, :default => "unicorn"
 attribute :rails_env,                  :kind_of => String, :default => "production"
 attribute :redirect_subdomains_at,     :kind_of => String, :default => nil
+attribute :logrotate,                  :kind_of => [ TrueClass, FalseClass ], :default => true
 
 def initialize(*args)
   super
