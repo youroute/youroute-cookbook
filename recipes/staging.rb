@@ -8,6 +8,7 @@
 #
 
 include_recipe "youroute::default"
+include_recipe "elasticsearch::default"
 
 [
   # packages for capybara-webkit gem
