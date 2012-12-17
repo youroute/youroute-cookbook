@@ -60,13 +60,6 @@ youroute_unicorn "youroute" do
   password_protection true
 end
 
-runit_service "avia-resque" do
-  options(
-    :rails_root => "/srv/avia/current",
-    :rails_env => "staging"
-  )
-end
-
 runit_service "avia-faye" do
   options(
     :rails_root => "/srv/avia/current"

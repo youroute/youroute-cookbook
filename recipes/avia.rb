@@ -39,13 +39,6 @@ youroute_unicorn "avia" do
   server_names [ "avia.youroute.ru", "prod.avia.youroute.ru" ]
 end
 
-runit_service "avia-resque" do
-  options(
-    :rails_root => "/srv/avia/current",
-    :rails_env => "production"
-  )
-end
-
 runit_service "avia-faye" do
   options(
     :rails_root => "/srv/avia/current"
