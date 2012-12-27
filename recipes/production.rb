@@ -10,6 +10,7 @@
 node[:production] = true
 
 include_recipe "youroute::default"
+include_recipe "elasticsearch::default"
 
 [
   'openjdk-7-jre' # required by Solr
