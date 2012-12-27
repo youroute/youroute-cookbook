@@ -13,7 +13,7 @@ include_recipe "youroute::default"
 include_recipe "elasticsearch::default"
 
 [
-  'openjdk-7-jre' # required by Solr
+  'openjdk-7-jre' # required by ElasticSearch
 ].each do |name|
   package name do
     action :install
@@ -39,15 +39,6 @@ logrotate_app "nginx" do
   frequency "daily"
   rotate 30
   create "644 root adm"
-end
-
-runit_service "youroute-solr" do
-  template_name "solr"
-  log_template_name "solr"
-  options(
-    :rails_root => "/srv/youroute/current",
-    :rails_env => "production"
-  )
 end
 
 template "/etc/nginx/sites-enabled/hotels.conf" do
