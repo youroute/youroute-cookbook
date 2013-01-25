@@ -118,15 +118,6 @@ end
 
 #######
 
-runit_service "youroute-solr" do
-  template_name "solr"
-  log_template_name "solr"
-  options(
-    :rails_root => "/srv/youroute/",
-    :rails_env => "development"
-  )
-end
-
 youroute_unicorn "youroute" do
   root "/srv/youroute"
   runit_user node['user']

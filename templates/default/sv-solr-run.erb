@@ -1,5 +1,0 @@
-#!/bin/zsh
-exec 2>&1
-cd <%= @options[:rails_root] %>
-sunspot-installer ./solr/
-exec chpst bundle exec rake sunspot:solr:run RAILS_ENV=<%= @options[:rails_env] || "development" %>
