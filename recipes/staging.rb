@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "youroute::default"
+include_recipe "youroute::rubybased"
 include_recipe "elasticsearch::default"
 
 [

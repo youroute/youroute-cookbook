@@ -9,7 +9,7 @@
 
 node[:production] = true
 
-include_recipe "youroute::default"
+include_recipe "youroute::rubybased"
 
 [
   'mongodb' # replace at mongodb recipe

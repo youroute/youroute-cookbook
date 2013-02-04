@@ -9,8 +9,8 @@
 
 node['user'].replace 'vagrant' # replace value and change all relative variables
 
-include_recipe    "youroute::default"
-include_recipe    "elasticsearch::default"
+include_recipe "youroute::rubybased"
+include_recipe "elasticsearch::default"
 
 [
   # packages for capybara-webkit gem
