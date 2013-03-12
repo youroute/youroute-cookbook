@@ -7,7 +7,7 @@ require_recipe "nginx::source"
 [
   ### this packages is nessesary for build nokogiri native extensions
   'libxml2-dev',
-  'libxslt1-dev'
+  'libxslt1-dev',
   ###
   'libsqlite3-dev', # this is for bundle install after rails new
   'imagemagick', # for paperclip
