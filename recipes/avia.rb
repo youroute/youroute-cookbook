@@ -10,6 +10,7 @@
 node[:production] = true
 
 include_recipe "youroute::rubybased"
+include_recipe "elasticsearch::default"
 
 [
   'mongodb' # replace at mongodb recipe
