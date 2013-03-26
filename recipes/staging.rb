@@ -42,9 +42,14 @@ cookbook_file "/srv/youroute/current/htpasswd" do
   mode "755"
 end
 
-runit_service "youroute-solr" do
-  template_name "solr"
-  log_template_name "solr"
+runit_service "youroute-sidekiq" do
+  options(
+    :rails_root => "/srv/youroute/current",
+    :rails_env => "staging"
+  )
+end
+
+runit_service "youroute-sidekiq-image-processing" do
   options(
     :rails_root => "/srv/youroute/current",
     :rails_env => "staging"

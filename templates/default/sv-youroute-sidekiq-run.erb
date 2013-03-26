@@ -1,0 +1,9 @@
+#!/bin/zsh
+exec 2>&1
+export USER=ubuntu
+export GROUP=ubuntu
+export RAILS_ENV=<%= @options[:rails_env] %>
+export CONCURENCY=20
+cd <%= @options[:rails_root] %>
+
+exec chpst bundle exec sidekiq -c $CONCURENCY
