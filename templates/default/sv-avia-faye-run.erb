@@ -1,4 +1,4 @@
 #!/bin/zsh
 exec 2>&1
 cd <%= @options[:rails_root] %>
-exec chpst bundle exec rackup private_pub.ru -s thin -E production
+exec chpst bundle exec rackup private_pub.ru -s thin -p 8080 -E production
