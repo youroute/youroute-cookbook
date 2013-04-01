@@ -52,6 +52,20 @@ template "/etc/nginx/sites-enabled/hotels.conf" do
   )
 end
 
+runit_service "youroute-sidekiq" do
+  options(
+    :rails_root => "/srv/youroute/current",
+    :rails_env => "staging"
+  )
+end
+
+runit_service "youroute-sidekiq-image-processing" do
+  options(
+    :rails_root => "/srv/youroute/current",
+    :rails_env => "staging"
+  )
+end
+
 youroute_unicorn "youroute" do
   root         "/srv/youroute/current"
   runit_user   node['user']
