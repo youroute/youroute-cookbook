@@ -55,14 +55,14 @@ end
 runit_service "youroute-sidekiq" do
   options(
     :rails_root => "/srv/youroute/current",
-    :rails_env => "staging"
+    :rails_env => "production"
   )
 end
 
 runit_service "youroute-sidekiq-image-processing" do
   options(
     :rails_root => "/srv/youroute/current",
-    :rails_env => "staging"
+    :rails_env => "production"
   )
 end
 
