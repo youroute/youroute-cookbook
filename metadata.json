@@ -1,0 +1,29 @@
+{
+  "name": "youroute",
+  "description": "Configures youroute servers cluster",
+  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
+  "maintainer": "DoubleR Software",
+  "maintainer_email": "everm1nd.mail@gmail.com",
+  "license": "GPL",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "1.0.0"
+}
