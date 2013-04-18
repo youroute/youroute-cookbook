@@ -6,21 +6,22 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-require_recipe "apt"
-require_recipe "locale-gen"
-require_recipe "locale"
-require_recipe "build-essential"
-require_recipe "git"
-require_recipe "zsh"
-require_recipe "oh-my-zsh"
-require_recipe "gemrc"
-require_recipe "database"
-require_recipe "mysql"
-require_recipe "mysql::server"
-require_recipe "runit"
-require_recipe "timezone"
-require_recipe "mosh"
-require_recipe "logrotate"
+include_recipe 'users'
+include_recipe 'apt'
+include_recipe 'locale-gen'
+include_recipe 'locale'
+include_recipe 'build-essential'
+include_recipe 'git'
+include_recipe 'zsh'
+include_recipe 'oh-my-zsh'
+include_recipe 'gemrc'
+include_recipe 'database'
+include_recipe 'mysql'
+include_recipe 'mysql::server'
+include_recipe 'runit'
+include_recipe 'timezone'
+include_recipe 'mosh'
+include_recipe 'logrotate'
 
 [
   'console-cyrillic',
