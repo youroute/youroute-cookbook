@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe 'users'
+include_recipe 'users::sysadmins'
 include_recipe 'apt'
 include_recipe 'locale-gen'
 include_recipe 'locale'
