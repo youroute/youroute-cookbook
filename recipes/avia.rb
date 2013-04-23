@@ -20,8 +20,8 @@ include_recipe "elasticsearch::default"
   end
 end
 
-rbenv_ruby "1.9.3-p125"
-rbenv_global "1.9.3-p125"
+rbenv_ruby node['ruby']['version']
+rbenv_global node['ruby']['version']
 rbenv_gem "bundler"
 
 { "youroute" => "id_rsa", "youroute.pub" => "id_rsa.pub" }.each do |from, to|
