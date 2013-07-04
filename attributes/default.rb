@@ -15,4 +15,6 @@ set['fakes3']['port'] = 4567
 set['tz'] = 'Europe/Moscow'
 set['mosh']['init_style'] = 'runit'
 set['youroute']['deploy_user'] = node['user']
-set['elasticsearch']['version'] = '0.20.6'
+set['elasticsearch']['version'] = '0.20.6' # out of date
+set['authorization']['sudo']['groups']       = ['sysadmin']
+set['authorization']['sudo']['passwordless'] = true
