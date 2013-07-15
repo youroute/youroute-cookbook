@@ -13,8 +13,7 @@ include_recipe 'runit'
 include_recipe 'chef-client'
 
 include_recipe 'users::sysadmins'
-include_recipe 'locale-gen'
-include_recipe 'locale'
+include_recipe 'youroute::localize'
 include_recipe 'build-essential'
 include_recipe 'git'
 include_recipe 'zsh'
@@ -27,8 +26,6 @@ include_recipe 'mosh'
 include_recipe 'logrotate'
 
 [
-  'console-cyrillic',
-  'language-pack-ru',
   'htop', # for process monitoring
   'redis-server',
   'ntp'
