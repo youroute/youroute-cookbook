@@ -6,8 +6,13 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe 'users::sysadmins'
 include_recipe 'apt'
+
+include_recipe 'chef-client::delete_validation'
+include_recipe 'runit'
+include_recipe 'chef-client'
+
+include_recipe 'users::sysadmins'
 include_recipe 'locale-gen'
 include_recipe 'locale'
 include_recipe 'build-essential'
@@ -16,7 +21,6 @@ include_recipe 'zsh'
 include_recipe 'oh-my-zsh'
 include_recipe 'gemrc'
 include_recipe 'youroute::mysql'
-include_recipe 'runit'
 include_recipe 'nginx::source'
 include_recipe 'timezone'
 include_recipe 'mosh'
