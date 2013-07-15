@@ -7,14 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "youroute::rubybased"
-include_recipe "elasticsearch::default"
+include_recipe 'youroute::rubybased'
+include_recipe 'elasticsearch::default'
 
 [
-  # packages for capybara-webkit gem
-  'xvfb',
-  'libqt4-dev',
-  'libqtwebkit-dev',
   'openjdk-7-jre' # required by Solr
 ].each do |name|
   package name do
