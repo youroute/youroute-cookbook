@@ -64,8 +64,3 @@ template "/etc/update-motd.d/00-custom-header" do
   source "motd-custom-header.erb"
   mode "755"
 end
-
-cookbook_file "/usr/bin/chef-provision" do
-  source "chef-provision"
-  mode "755"
-end
