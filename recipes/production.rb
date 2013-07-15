@@ -10,7 +10,6 @@
 node[:production] = true
 
 include_recipe "youroute::rubybased"
-include_recipe "elasticsearch::default"
 
 [
   'openjdk-7-jre' # required by ElasticSearch

@@ -11,7 +11,6 @@ node['user'].replace 'vagrant' # replace value and change all relative variables
 
 include_recipe 'youroute::rubybased'
 include_recipe 'youroute::rubytest'
-include_recipe 'elasticsearch::default'
 
 [
   'openjdk-7-jre' # required by Solr

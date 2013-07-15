@@ -10,7 +10,6 @@
 node[:production] = true
 
 include_recipe "youroute::rubybased"
-include_recipe "elasticsearch::default"
 
 rbenv_ruby node['ruby']['version']
 rbenv_global node['ruby']['version']

@@ -25,6 +25,8 @@ include_recipe 'timezone'
 include_recipe 'mosh'
 include_recipe 'logrotate'
 
+include_recipe 'elasticsearch'
+
 [
   'htop', # for process monitoring
   'redis-server',
