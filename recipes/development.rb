@@ -12,14 +12,6 @@ node['user'].replace 'vagrant' # replace value and change all relative variables
 include_recipe 'youroute::rubybased'
 include_recipe 'youroute::rubytest'
 
-[
-  'openjdk-7-jre' # required by Solr
-].each do |name|
-  package name do
-    action :install
-  end
-end
-
 # vagrant ssh hangs up fix
 template "/etc/rc.local" do
   source "rc.local"

@@ -25,6 +25,7 @@ include_recipe 'timezone'
 include_recipe 'mosh'
 include_recipe 'logrotate'
 
+include_recipe 'java'
 include_recipe 'elasticsearch'
 
 [
