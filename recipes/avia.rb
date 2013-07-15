@@ -12,14 +12,6 @@ node[:production] = true
 include_recipe "youroute::rubybased"
 include_recipe "elasticsearch::default"
 
-[
-  'mongodb' # replace at mongodb recipe
-].each do |name|
-  package name do
-    action :install
-  end
-end
-
 rbenv_ruby node['ruby']['version']
 rbenv_global node['ruby']['version']
 rbenv_gem "bundler"

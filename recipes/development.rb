@@ -17,8 +17,7 @@ include_recipe "elasticsearch::default"
   'xvfb',
   'libqt4-dev',
   'libqtwebkit-dev',
-  'openjdk-7-jre', # required by Solr
-  'mongodb' # replace at mongodb recipe
+  'openjdk-7-jre' # required by Solr
 ].each do |name|
   package name do
     action :install
