@@ -33,22 +33,6 @@ template "/etc/rc.local" do
   group "root"
 end
 
-gem_package "mysql"
-
-mysql_connection_info = {:host => "localhost", :username => 'root', :password => node['mysql']['server_root_password']}
-
-mysql_database_user 'developer' do
-  connection mysql_connection_info
-  password 'qweqwe'
-  action :create
-end
-
-mysql_database_user 'developer' do
-  connection mysql_connection_info
-  password 'qweqwe'
-  action :grant
-end
-
 bash "install ruby-#{node['ruby']['version']}-perf" do
   # code below executes "curl https://raw.github.com/gist/1688857/rbenv.sh | sh"
   code <<-EOH
