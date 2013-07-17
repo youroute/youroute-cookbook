@@ -1,11 +1,7 @@
 include_recipe 'locale-gen'
 include_recipe 'locale'
 
-[
+install_packages([
   'console-cyrillic',
   'language-pack-ru'
-].each do |name|
-  package name do
-    action :install
-  end
-end
+])

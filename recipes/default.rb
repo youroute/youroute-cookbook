@@ -6,6 +6,10 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+class Chef::Recipe
+  include Utils
+end
+
 include_recipe 'apt'
 
 include_recipe 'chef-client::delete_validation'
@@ -25,18 +29,14 @@ include_recipe 'timezone'
 include_recipe 'mosh'
 include_recipe 'logrotate'
 
-include_recipe 'java'
+include_recipe 'java' # dependency of elasticsearch, but not required in cookbook
 include_recipe 'elasticsearch'
 
-[
+install_packages([
   'htop', # for process monitoring
   'redis-server',
   'ntp'
-].each do |name|
-  package name do
-    action :install
-  end
-end
+])
 
 # Dotfiles from youroute repo
 
