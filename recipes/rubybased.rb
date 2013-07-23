@@ -1,7 +1,7 @@
 include_recipe "youroute::default"
 
 include_recipe "ruby_build"
-include_recipe "rbenv"
+include_recipe "rbenv::system"
 
 install_packages([
   ### this packages is nessesary for build nokogiri native extensions
