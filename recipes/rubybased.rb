@@ -9,5 +9,5 @@ install_packages([
   'libxslt1-dev',
   ###
   'libsqlite3-dev', # this is for bundle install after rails new
-  'imagemagick', # for paperclip
+  'imagemagick' # for paperclip
 ])
