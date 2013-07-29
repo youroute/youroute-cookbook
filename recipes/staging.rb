@@ -9,10 +9,6 @@
 
 include_recipe 'youroute::rubybased'
 
-rbenv_ruby node['ruby']['version']
-rbenv_global node['ruby']['version']
-rbenv_gem "bundler"
-
 { "youroute" => "id_rsa", "youroute.pub" => "id_rsa.pub" }.each do |from, to|
   cookbook_file "/home/#{node['youroute']['deploy_user']}/.ssh/#{to}" do
     source from
