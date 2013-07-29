@@ -7,8 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node['user'].replace 'vagrant' # replace value and change all relative variables
-
 include_recipe 'youroute::rubybased'
 include_recipe 'youroute::rubytest'
 
