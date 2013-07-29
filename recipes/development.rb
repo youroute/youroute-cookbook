@@ -12,32 +12,6 @@ node['user'].replace 'vagrant' # replace value and change all relative variables
 include_recipe 'youroute::rubybased'
 include_recipe 'youroute::rubytest'
 
-# vagrant ssh hangs up fix
-template "/etc/rc.local" do
-  source "rc.local"
-  mode "755"
-  owner "root"
-  group "root"
-end
-
-bash "install ruby-#{node['ruby']['version']}-perf" do
-  # code below executes "curl https://raw.github.com/gist/1688857/rbenv.sh | sh"
-  code <<-EOH
-    source /etc/zsh/zshenv
-    source ~/.zshrc
-    VERSION="#{node['ruby']['version']}"
-    curl https://raw.github.com/gist/1688857/2-$VERSION-patched.sh > /tmp/$VERSION-perf
-    rbenv install /tmp/$VERSION-perf
-  EOH
-  user 'rbenv'
-  not_if { ruby_version_installed?("#{node['ruby']['version']}-perf") }
-end
-
-rbenv_global "#{node['ruby']['version']}-perf"
-%w(bundler pry).each do |name|
-  rbenv_gem name
-end
-
 bash "copy developer keys" do
   user node['user']
   cwd "/tmp/ssh-keys"
