@@ -12,9 +12,14 @@ set['ohmyzsh']['users'] = [ node['user'] ]
 set['mysql']['server_root_password'] = 'qweqwe'
 set['mysql']['bind_address'] = '127.0.0.1'
 
+set['rbenv']['root_path'] = '/opt/rbenv'
 set['rbenv']['rubies'] = [ '1.9.3-p327' ]
 set['rbenv']['global'] = '1.9.3-p327'
-set['rbenv']['root_path'] = '/opt/rbenv'
+set['rbenv']['gems'] = {
+  '1.9.3-p327' => [
+    { 'name' => 'bundler' }
+  ]
+}
 
 set['ruby_build']['upgrade'] = true
 
