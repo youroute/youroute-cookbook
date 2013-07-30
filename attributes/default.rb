@@ -36,7 +36,7 @@ set['mosh']['init_style'] = 'runit'
 
 set['youroute']['deploy_user'] = node['user']
 
-set['elasticsearch']['version'] = '0.20.6' # out of date
+set['elasticsearch']['version'] = '0.90.1'
 
 set['authorization']['sudo']['groups']       = ['sysadmin']
 set['authorization']['sudo']['passwordless'] = true
