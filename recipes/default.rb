@@ -11,10 +11,7 @@ class Chef::Recipe
 end
 
 include_recipe 'apt'
-
-include_recipe 'chef-client::delete_validation'
 include_recipe 'runit'
-
 include_recipe 'users::sysadmins'
 include_recipe 'youroute::_localize'
 include_recipe 'build-essential'
