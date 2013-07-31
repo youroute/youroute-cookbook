@@ -11,15 +11,6 @@ node[:production] = true
 
 include_recipe "youroute::rubybased"
 
-{ "youroute" => "id_rsa", "youroute.pub" => "id_rsa.pub" }.each do |from, to|
-  cookbook_file "/home/#{node['youroute']['deploy_user']}/.ssh/#{to}" do
-    source from
-    owner node['youroute']['deploy_user']
-    group node['youroute']['deploy_user']
-    mode "600"
-  end
-end
-
 youroute_unicorn "avia" do
   root         "/srv/avia/current"
   runit_user   node['user']
