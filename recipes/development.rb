@@ -10,23 +10,6 @@
 include_recipe 'youroute::rubybased'
 include_recipe 'youroute::rubytest'
 
-bash "copy developer keys" do
-  user node['user']
-  cwd "/tmp/ssh-keys"
-  code <<-EOH
-  for file in *
-  do
-    if test ! -d "$file"
-    then
-      if test ! "$file" = "known_hosts" && test ! "$file" = "authorized_keys"
-      then
-        cp "$file" "/home/<%= node['user'] %>/.ssh/"
-      fi
-    fi
-  done
-  EOH
-end
-
 ####### TODO: move it into provider
 
 youroute_path = "/srv/youroute"
