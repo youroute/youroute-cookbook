@@ -26,7 +26,7 @@ set['ruby_build']['upgrade'] = true
 set['nginx']['version'] = '1.4.2'
 set['nginx']['source']['url'] = "http://nginx.org/download/nginx-#{node['nginx']['version']}.tar.gz"
 set['nginx']['init_style'] = 'runit'
-set['nginx']['worker_processes'] = 2
+set['nginx']['worker_processes'] = node['cpu']['total']
 set['nginx']['gzip'] = 'on'
 set['nginx']['gzip_comp_level'] = 5
 
