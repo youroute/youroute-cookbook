@@ -23,11 +23,3 @@ runit_service "avia-faye" do
     :rails_root => "/srv/avia/current"
   )
 end
-
-logrotate_app "nginx" do
-  cookbook "logrotate"
-  path "/var/log/nginx/*.log"
-  frequency "daily"
-  rotate 30
-  create "644 root adm"
-end

@@ -40,3 +40,10 @@ set['elasticsearch']['version'] = '0.90.1'
 
 set['authorization']['sudo']['groups']       = ['sysadmin']
 set['authorization']['sudo']['passwordless'] = true
+
+set['logrotate']['global']['/var/log/nginx/*.log'] = {
+    'missingok' => true,
+    'daily' => true,
+    'create' => '0660 root sysadmin',
+    'rotate' => 30
+}

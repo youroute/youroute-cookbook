@@ -11,14 +11,6 @@ node[:production] = true
 
 include_recipe "youroute::rubybased"
 
-logrotate_app "nginx" do
-  cookbook "logrotate"
-  path "/var/log/nginx/*.log"
-  frequency "daily"
-  rotate 30
-  create "644 root adm"
-end
-
 template "/etc/nginx/sites-enabled/hotels.conf" do
   source "nginx-maintenance.conf.erb"
   mode "644"
