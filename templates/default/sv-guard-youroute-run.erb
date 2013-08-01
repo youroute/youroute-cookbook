@@ -1,5 +1,0 @@
-#!/bin/zsh
-exec 2>&1
-export RAILS_ROOT=<%= @options[:rails_root] %>
-cd $RAILS_ROOT
-exec chpst bundle exec guard -i
